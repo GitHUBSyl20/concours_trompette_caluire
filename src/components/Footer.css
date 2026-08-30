@@ -1,0 +1,39 @@
+.footer {
+  padding-block: var(--space-2xl);
+  background-color: var(--color-purple-dark);
+  color: var(--color-on-purple);
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-xl);
+}
+
+.footer__event,
+.footer__organisation {
+  font-weight: var(--weight-semibold);
+}
+
+.footer__meta {
+  color: var(--color-gold-light);
+  font-size: var(--text-sm);
+}
+
+.footer__meta a:hover {
+  color: var(--color-gold);
+}
+
+/* Lieu du concours : `address` est en italique par défaut, on le neutralise. */
+.footer__venue {
+  margin-top: var(--space-sm);
+  color: var(--color-gold-light);
+  font-size: var(--text-sm);
+  font-style: normal;
+  line-height: var(--leading-normal);
+}
+
+.footer__venue-name {
+  font-weight: var(--weight-semibold);
+}

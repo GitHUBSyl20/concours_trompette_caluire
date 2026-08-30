@@ -1,0 +1,6 @@
+.rules__documents {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  margin-top: var(--space-xl);
+}

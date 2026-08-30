@@ -1,0 +1,22 @@
+.categories__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-lg);
+}
+
+.categories__item {
+  padding: var(--space-lg);
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  text-align: center;
+}
+
+.categories__name {
+  margin-bottom: var(--space-2xs);
+  font-weight: var(--weight-light);
+}
+
+.categories__condition {
+  color: var(--color-purple-light);
+  font-size: var(--text-sm);
+}

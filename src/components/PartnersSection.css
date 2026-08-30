@@ -1,0 +1,46 @@
+.partners__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
+  align-items: center;
+  gap: var(--space-xl);
+}
+
+.partners__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Le lien couvre toute la case pour rester confortable au doigt. */
+.partners__link {
+  display: block;
+  width: 100%;
+  border-radius: var(--radius-md);
+  transition:
+    opacity var(--transition),
+    transform var(--transition);
+}
+
+.partners__link:hover {
+  opacity: 0.65;
+  transform: scale(1.03);
+}
+
+.partners__link:focus-visible {
+  outline-offset: 6px;
+}
+
+/* `object-fit: contain` garantit qu'aucun logo n'est déformé. */
+.partners__logo {
+  width: 100%;
+  max-height: 5rem;
+  object-fit: contain;
+}
+
+/* Carte blanche pour les logos fournis sur fond blanc opaque. */
+.partners__logo--card {
+  padding: var(--space-sm);
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}

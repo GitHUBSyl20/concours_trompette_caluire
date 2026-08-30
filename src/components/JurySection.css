@@ -1,0 +1,108 @@
+/**
+ * Proportions relevées sur « Page Bios DEF » (page de 1440 pt de large,
+ * défilement continu) :
+ *   – portrait 228 × 344 (ratio ≈ 2/3), bord gauche à x = 172,9 ;
+ *   – colonne de texte de x = 572 à x = 1266, soit 694 de large ;
+ *   – 171 entre le portrait et le texte ;
+ *   – nom en Poppins Light 40 pt, #532460 ;
+ *   – biographie en Poppins Light 14 pt, #1d1d1b, justifiée ;
+ *   – bandes pleine largeur en violet à 20 % (#ddd4e0), une personne sur
+ *     deux, avec 72 de respiration au-dessus et au-dessous.
+ *
+ * L'interligne de la biographie est desserré par rapport à la planche
+ * (1,2 en typographie print) : à 14 px sur 694 px de large, le texte
+ * deviendrait illisible à l'écran.
+ */
+
+.jury__group-title {
+  margin-bottom: var(--space-xl);
+  color: var(--color-purple);
+  font-size: clamp(1.5rem, 2.75vw, 2.5rem);
+  letter-spacing: 0.02em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/* Les bandes vont d'un bord à l'autre : la liste sort du container. */
+.jury__list {
+  margin-bottom: var(--space-2xl);
+}
+
+.person {
+  /* 72 / 1440 = 5 % */
+  padding-block: clamp(2rem, 5vw, 4.5rem);
+}
+
+/* Une personne sur deux sur fond teinté, comme sur la planche. */
+.person:nth-child(odd) {
+  background-color: var(--color-purple-tint);
+}
+
+.person__inner {
+  display: grid;
+  gap: var(--space-md);
+}
+
+/* En composition empilée, le portrait est centré comme sur le plan de
+   travail mobile de la graphiste (375 px : portrait de 228 à x = 71). */
+.person__figure {
+  text-align: center;
+}
+
+.person__photo {
+  width: min(100%, 14.25rem);
+  margin-inline: auto;
+  aspect-ratio: 228 / 344;
+  object-fit: cover;
+}
+
+.person__photo--empty {
+  background-color: var(--color-surface);
+  border: 1px dashed var(--color-border);
+}
+
+.person__credit {
+  margin-top: var(--space-2xs);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.person__name {
+  margin-bottom: var(--space-sm);
+  color: var(--color-purple);
+  font-size: clamp(1.5rem, 2.8vw, 2.5rem);
+  font-weight: var(--weight-light);
+  line-height: 1.2;
+}
+
+.person__bio {
+  font-size: clamp(0.875rem, 1vw, 0.9375rem);
+  line-height: 1.55;
+}
+
+.person__bio + .person__bio {
+  margin-top: 0.85em;
+}
+
+/* --- Deux colonnes : portrait à gauche, biographie à droite ------------- */
+
+@media (min-width: 860px) {
+  .person__inner {
+    /* Rapport 228 : 694 de la planche, gouttière de 171 (11,9 %). */
+    grid-template-columns: 228fr 694fr;
+    column-gap: clamp(1.5rem, 11.9vw, 10.6875rem);
+    align-items: start;
+  }
+
+  .person__figure {
+    text-align: start;
+  }
+
+  .person__photo {
+    width: 100%;
+  }
+
+  .person__bio {
+    text-align: justify;
+  }
+}

@@ -1,0 +1,26 @@
+.registration {
+  background-color: var(--color-purple);
+  color: var(--color-on-purple);
+}
+
+.registration__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-lg);
+  text-align: center;
+}
+
+.registration__title {
+  margin-bottom: 0;
+  color: var(--color-gold);
+}
+
+.registration__details {
+  font-size: var(--text-lg);
+}
+
+.registration__note {
+  color: var(--color-gold-light);
+  font-size: var(--text-sm);
+}

@@ -1,0 +1,11 @@
+/**
+ * Point d'entrée des styles globaux.
+ *
+ * Poppins (300 Light et 700 Bold, plus 400/600 pour les besoins courants)
+ * est chargée dans `index.html` via Google Fonts.
+ * TODO — envisager l'auto-hébergement des fichiers de police (RGPD,
+ * suppression d'une requête tierce) une fois la charte figée.
+ */
+
+@import './styles/variables.css';
+@import './styles/base.css';

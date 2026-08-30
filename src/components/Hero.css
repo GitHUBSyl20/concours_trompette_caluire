@@ -1,0 +1,31 @@
+/**
+ * Valeurs relevées sur la planche (référence 1440 pt de large) :
+ * accroche Poppins Light 25 pt en #532666, interligne 30 pt (1,2) ;
+ * 95 pt entre le bas du bandeau et le bloc de texte.
+ */
+
+.hero {
+  /* 95 / 1440 ≈ 6,6 % de la largeur */
+  padding-top: clamp(2.5rem, 6.6vw, 5.9375rem);
+  padding-bottom: clamp(3rem, 7vw, 6rem);
+  background-color: var(--color-bg);
+}
+
+.hero__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero__subtitle {
+  max-width: 42ch;
+  color: var(--color-purple);
+  font-size: clamp(1.0625rem, 1.75vw, 1.5625rem);
+  font-weight: var(--weight-light);
+  line-height: 1.2;
+}
+
+.hero .button {
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+}

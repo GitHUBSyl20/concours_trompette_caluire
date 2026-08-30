@@ -1,0 +1,223 @@
+/**
+ * Remise à zéro légère, typographie de base et utilitaires de mise en page.
+ * Les styles propres à chaque section vivent dans le fichier CSS du composant.
+ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* Le bandeau n'est pas collant, mais la barre fine l'est : les ancres
+     doivent s'arrêter sous elle. */
+  scroll-padding-top: calc(var(--sticky-nav-height) + var(--space-md));
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  min-height: 100dvh;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  font-weight: var(--weight-light);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--color-heading);
+  font-weight: var(--weight-bold);
+  line-height: var(--leading-tight);
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--text-3xl);
+}
+
+h2 {
+  font-size: var(--text-2xl);
+}
+
+h3 {
+  font-size: var(--text-xl);
+}
+
+p {
+  text-wrap: pretty;
+}
+
+ul,
+ol {
+  padding: 0;
+  list-style: none;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+  transition: color var(--transition);
+}
+
+a:hover {
+  color: var(--color-copper);
+}
+
+button {
+  font: inherit;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* --- Utilitaires de mise en page ---------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding-block: var(--section-spacing);
+}
+
+.section__title {
+  margin-bottom: var(--space-xl);
+}
+
+/** Texte en attente de contenu définitif — visible et volontairement neutre. */
+.placeholder {
+  padding: var(--space-lg);
+  border: 1px dashed var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-muted);
+  font-style: italic;
+}
+
+/** Lien d'évitement, visible uniquement au focus clavier. */
+.skip-link {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  z-index: 100;
+  padding: var(--space-xs) var(--space-md);
+  background-color: var(--color-gold-light);
+  border-radius: var(--radius-md);
+  color: var(--color-purple-dark);
+  font-weight: var(--weight-semibold);
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+
+.skip-link:focus-visible {
+  color: var(--color-purple-dark);
+  transform: translateY(0);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* --- Boutons ------------------------------------------------------------ */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  /* Zone tactile confortable sur mobile. */
+  min-height: 44px;
+  padding: var(--space-xs) var(--space-lg);
+  border: 1px solid transparent;
+  border-radius: var(--radius-pill);
+  font-weight: var(--weight-semibold);
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    background-color var(--transition),
+    color var(--transition),
+    border-color var(--transition);
+}
+
+.button--primary {
+  background-color: var(--color-purple);
+  color: var(--color-on-purple);
+}
+
+.button--primary:hover {
+  background-color: var(--color-purple-dark);
+  color: var(--color-on-purple);
+}
+
+.button--secondary {
+  background-color: transparent;
+  border-color: var(--color-purple);
+  color: var(--color-purple);
+}
+
+.button--secondary:hover {
+  background-color: var(--color-purple);
+  color: var(--color-on-purple);
+}
+
+.button[aria-disabled='true'],
+.button:disabled {
+  background-color: var(--color-border);
+  border-color: transparent;
+  color: var(--color-muted);
+  cursor: not-allowed;
+}
+
+/* --- Préférences utilisateur -------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
