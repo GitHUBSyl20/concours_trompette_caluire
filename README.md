@@ -44,6 +44,45 @@ src/
 Tous les textes, listes et liens passent par `src/data/siteData.ts` : ne pas
 écrire de contenu en dur dans un composant.
 
+Les images de `public/` sont livrées prêtes à l'emploi : logos partenaires en
+WebP réduits à 600 px de côté maximum, portraits en WebP 900 px. Si un
+nouveau logo arrive en PNG haute définition, le réduire avant de l'ajouter —
+il serait sinon servi tel quel.
+
+## Déploiement (Vercel)
+
+Le site est entièrement statique : aucune variable d'environnement, aucune
+fonction serveur, aucune réécriture d'URL (la page est unique, la navigation
+se fait par ancres).
+
+Vercel détecte seul le préréglage **Vite**. Réglages attendus :
+
+| Réglage          | Valeur          |
+| ---------------- | --------------- |
+| Framework Preset | Vite            |
+| Build Command    | `npm run build` |
+| Output Directory | `dist`          |
+| Install Command  | `npm install`   |
+| Node.js Version  | 22.x            |
+
+La version de Node est fixée par `engines` dans `package.json`.
+
+Vérification avant mise en ligne :
+
+```bash
+npm run lint && npm run build && npm run preview
+```
+
+### Aperçu de partage
+
+`public/images/og-concours-trompette.png` (1200 × 630) est l'image affichée
+quand le lien est partagé. Elle a été composée à partir du logo horizontal de
+la planche, sur le violet de marque.
+
+Une fois le domaine connu, remplacer dans `index.html` le chemin relatif de
+`og:image` par une URL absolue et ajouter une balise `og:url` : Facebook et
+LinkedIn ne résolvent pas les chemins relatifs.
+
 ## Informations encore manquantes
 
 Elles sont signalées par des `TODO` dans `src/data/siteData.ts` :
