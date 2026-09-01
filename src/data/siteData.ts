@@ -254,7 +254,7 @@ export const partners: Partner[] = [
     id: 'a-mute',
     name: 'A-Mute',
     logo: '/logos/partners/a-mute.webp',
-    url: 'https://amute3dprint.store/',
+    url: 'https://amute3dprint.store/fr/',
     // TODO — lien peu sûr : le seul « A-Mute » trouvé est un fabricant
     // allemand de sourdines imprimées en 3D, dont le logo ne ressemble pas
     // à celui fourni. À faire confirmer avant publication.
@@ -268,14 +268,14 @@ export const partners: Partner[] = [
   { id: 'a-jaminet', name: 'A. Jaminet', logo: '/logos/partners/a-jaminet.webp', url: 'https://www.ajaminet.fr/' },
   { id: 'donat', name: 'Donat — Embouchures pour cuivres', logo: '/logos/partners/donat.webp', url: 'https://www.donat-mouthpiece.com/' },
   { id: 'editions-lafitan', name: 'Éditions Lafitan', logo: '/logos/partners/editions-lafitan.svg', url: 'https://www.lafitan.com/' },
-  { id: 'besson', name: 'Besson London', logo: '/logos/partners/besson.webp', url: 'https://www.besson.com/' },
+  { id: 'besson', name: 'Besson London', logo: '/logos/partners/besson.webp', url: 'https://www.besson.com/fr/' },
   { id: 'bs-markneukirchen', name: 'B&S Markneukirchen', logo: '/logos/partners/bs-markneukirchen.webp', url: 'https://b-and-s.com/' },
-  { id: 'antoine-courtois', name: 'Antoine Courtois Paris', logo: '/logos/partners/antoine-courtois.webp', url: 'https://www.a-courtois.com/' },
+  { id: 'antoine-courtois', name: 'Antoine Courtois Paris', logo: '/logos/partners/antoine-courtois.webp', url: 'https://www.a-courtois.com/fr/' },
   {
     id: 'johannes-scherzer',
     name: 'Meister Johannes Scherzer',
     logo: '/logos/partners/johannes-scherzer.webp',
-    url: 'https://www.scherzer-trumpets.com/',
+    url: 'https://www.scherzer-trumpets.com/fr/',
   },
   { id: 'hawkins-mutes', name: 'Hawkins Mutes', logo: '/logos/partners/hawkins-mutes.webp', url: 'https://hawkinsmutes.com/' },
   {
