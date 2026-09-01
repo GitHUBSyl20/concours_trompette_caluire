@@ -119,7 +119,9 @@ export const categories: Category[] = [
 /* -------------------------------------------------------------------------- */
 
 /**
- * Biographies issues du fichier « Page Bios DEF.ai ».
+ * Biographies issues du fichier « Page Bios DEF.ai », sauf celle de Clément
+ * Saunier, mise à jour par l'organisation depuis (voir le commentaire sur son
+ * entrée).
  *
  * Les portraits sont les visuels livrés par l'organisation, convertis en
  * WebP (900 px de large) dans `public/images/portraits/`. Les PNG d'origine
@@ -135,15 +137,18 @@ export const people: Person[] = [
     name: 'Clément Saunier',
     role: 'jury',
     instrument: 'Trompette',
+    // Version transmise par l'organisation le 01/09/2026, qui remplace
+    // celle du fichier « Page Bios DEF.ai ».
     bio: [
-      'Clément Saunier est l’un des trompettistes classiques Français les plus actifs de la scène Française et internationale.',
-      'Après des études au Conservatoire National Supérieur de Musique de Paris (classe de Clément Garrec), il obtient plusieurs grands prix aux concours internationaux d’interprétation : Citta di Porcia (Italie 2002), Prague (2003), Jeju (Corée du Sud 2004), Théo-Charlier Bruxelles (2005), Tchaïkovski-Moscou (2011) et Maurice André-Paris (2003-2006).',
-      'En 2013, il est nommé trompette solo de l’Ensemble intercontemporain et collabore avec les grands compositeurs et chefs d’orchestre de notre temps (Peter Eötvös, Matthias Pintscher, Pierre Boulez, Simon Rattle, Pablo Heras-Casado, François-Xavier Roth, Unsuk Chin, Martin Matalon, Helmut Lachenmann, Olga Neuwirth, Philippe Manoury, Hèctor Parra, Yann Robin…). Il interprète notamment un grand nombre d’œuvres solistes du répertoire pour trompette et de créations à la Philharmonie de Paris, la Philharmonie de Cologne, Hambourg, Tokyo, Moscou, New York, Munich et Berlin.',
-      'Il s’est produit en soliste avec l’orchestre de la radio de Berlin, l’orchestre national de Bretagne, l’orchestre de chambre de Lausanne ou encore l’orchestre national des Pays de la Loire et donne de nombreux récitals et master classes à l’université de Séoul, à l’académie de Lucerne, à l’université de Tokyo, de Bologne, de Bogotá et à Chosen Vale (USA).',
-      'Particulièrement intéressé par la musique de chambre, il est membre fondateur de l’ensemble Trombamania ainsi que du Paris Brass Quintet et se produit en duo trompette et orgue avec Pascal Marsault.',
-      'Sa discographie comprend de nombreuses parutions dont l’enregistrement du concerto d’Henri Tomasi avec l’English Chamber Orchestra et d’œuvres baroques avec l’ensemble Leipzig Amici Musicae (Cristal Records-2009). Il a enregistré la collection de DVD-ROM pédagogiques ‘’Musik’It’’ rassemblant 250 oeuvres originales pour trompette et piano (Cristal Records-2008).',
-      'Il a également enregistré plusieurs disques avec l’orchestre d’harmonie des gardiens de la paix de Paris parmi lesquels, le 2e concerto pour trompette d’André Jolivet (Maguelone-2005), le concerto d’Ida Gotkovsky (Cristal Records-2009), les concertos pour trompette de Roger Boutry, Charles Chaynes, Lalo Schiffrin et Anthony Girard (Corélia-2014).',
-      'Le CD “Direction” sorti en 2017 rassemble des œuvres pour trompette seule de Fedele, Maxwell Davies, Pintscher, Scelsi, Henze et Takemitsu. Enfin, son dernier album ‘’Zimmermann, Eötvös et Gruber’’ est sorti en 2026.',
+      'Clément Saunier est l’un des trompettistes français les plus actifs de la scène nationale et internationale. Diplômé du Conservatoire à Rayonnement Régional de Paris et du Conservatoire National Supérieur de Musique de Paris, il étudie auprès de Pierre Gillet, Clément Garrec, Gérard Boulanger et Jens McManama, avant de se perfectionner auprès de Pierre Thibault et Vladimir Kafelnikov.',
+      'Ses prestations aux concours internationaux sont récompensées par plusieurs grands prix, notamment à Città di Porcia (Italie), au Printemps de Prague, à Jeju (Corée du Sud), au concours Théo Charlier à Bruxelles, au concours Maurice André à Paris ainsi qu’au Concours Tchaïkovski de Moscou.',
+      'En 2013, il est nommé trompette solo de l’Ensemble intercontemporain. À ce poste, il collabore avec les grands compositeurs et chefs d’orchestre de notre temps. Il interprète et crée un grand nombre d’œuvres du répertoire pour trompette, parmi lesquelles le Requiem de Hans Werner Henze, Mysteries of the Macabre de György Ligeti, la Sequenza X de Luciano Berio, Metal Extensions et Metallics de Yan Maresz, le NONcerto de Richard Ayres, Doppelgänger et Evil Twin de Yann Robin, Wild Winged One de Liza Lim, Triptyque Bleu d’Hèctor Parra, Gnomon de José Miguel Fernández ou encore Soliloquy IX de Thomas Simaku.',
+      'Il se produit régulièrement dans les grandes salles internationales, telles que la Philharmonie de Paris, la Philharmonie de Cologne, le Centre Pompidou, Hambourg, Munich, Milan, New York, Tokyo, Pékin, Londres, Moscou ou Berlin.',
+      'En soliste, il est invité par de nombreux orchestres et festivals en Europe et à l’étranger, et mène parallèlement une intense activité de musique de chambre et de récital. Il est membre fondateur de l’ensemble Trombamania et du Paris Brass Quintet.',
+      'Sa discographie soliste reflète la diversité de son parcours artistique, de la musique baroque aux œuvres contemporaines. Elle comprend notamment l’enregistrement du concerto d’Henri Tomasi avec l’English Chamber Orchestra, les concertos pour trompette d’Ida Gotkovsky, Charles Chaynes, Lalo Schiffrin, Roger Boutry et Anthony Girard, ainsi que le disque Direction (2017), consacré à des œuvres pour trompette seule de Fedele, Maxwell Davies, Pintscher, Scelsi, Henze et Takemitsu. Ces enregistrements sont parus chez Cristal Records, Maguelone, Klarthe et Corélia. En 2026 il sort un album chez Claves consacré aux œuvres pour trompette et orchestre symphonique de Zimmermann, Eötvös et Gruber.',
+      'Pédagogue engagé, Clément Saunier est professeur au Conservatoire National Supérieur de Musique et de Danse de Lyon depuis 2021 ainsi qu’au Conservatoire à Rayonnement Régional de Paris depuis 2015, et donne des masterclasses dans les principales institutions et académies internationales.',
+      'Depuis 1998, il développe de nombreux projets artistiques et pédagogiques dédiés aux cuivres. Il est notamment à l’origine du festival international Le Son des Cuivres à Mamers et du Surgères Brass Festival, ainsi que de l’Académie de cuivres et percussions de Surgères, qui rassemblent chaque été plusieurs dizaines de milliers de festivaliers.',
+      'Il développe et joue les instruments Antoine Courtois.',
     ],
     photo: '/images/portraits/clement-saunier.webp',
     photoCredit: '© D. Gliksman',
