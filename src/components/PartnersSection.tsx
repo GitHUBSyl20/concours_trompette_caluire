@@ -28,8 +28,8 @@ function PartnersSection() {
             const logo = (
               <img
                 className={
-                  partner.needsWhiteCard
-                    ? 'partners__logo partners__logo--card'
+                  partner.logoBackground
+                    ? `partners__logo partners__logo--${partner.logoBackground}`
                     : 'partners__logo'
                 }
                 src={partner.logo}

@@ -321,6 +321,17 @@ export const partners: Partner[] = [
     url: 'https://pistonmagazinemusique.wordpress.com/',
     note: 'Absent de la planche « PARTENAIRES » : présence à confirmer.',
   },
+  // Partenaire ajouté après coup, absent lui aussi de la planche.
+  // Le lien Instagram est celui imprimé sur la carte de visite fournie :
+  // c'est le seul canal que l'atelier communique, il n'a pas de site.
+  {
+    id: '3dzir',
+    name: '3DZiR — Embouchures et becs',
+    logo: '/logos/partners/3dzir.webp',
+    url: 'https://www.instagram.com/chalayerphilippe/',
+    logoBackground: 'opaque',
+    note: 'Ajouté hors planche « PARTENAIRES ». Logo en rendu 3D sur fond plein, contrairement aux autres.',
+  },
 ]
 
 /* -------------------------------------------------------------------------- */

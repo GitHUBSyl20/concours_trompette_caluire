@@ -13,7 +13,11 @@
 
 /* Le lien couvre toute la case pour rester confortable au doigt. */
 .partners__link {
-  display: block;
+  /* Flex plutôt que `block` : un logo qui ne prend pas toute la largeur
+     (variante `--opaque`) reste centré dans sa case. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   border-radius: var(--radius-md);
   transition:
@@ -38,9 +42,25 @@
 }
 
 /* Carte blanche pour les logos fournis sur fond blanc opaque. */
-.partners__logo--card {
+.partners__logo--white {
   padding: var(--space-sm);
   background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+/**
+ * Logo livré sur un fond plein, au milieu de marques détourées : les angles
+ * sont arrondis pour qu'il se lise comme une vignette et non comme une tuile,
+ * et sa hauteur est réduite pour que sa masse rejoigne celle des voisins —
+ * un carré plein pèse plus lourd à l'œil qu'un logo large et ajouré.
+ */
+.partners__logo--opaque {
+  /* `width: auto` est indispensable : sur la largeur pleine des autres logos,
+     l'arrondi et l'ombre cerneraient une boîte vide autour de l'image. */
+  width: auto;
+  height: 3.75rem;
+  max-height: none;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
 }

@@ -58,10 +58,13 @@ export interface Partner {
   /** Site officiel du partenaire, `null` tant qu'il n'est pas confirmé. */
   url: string | null
   /**
-   * `true` si le logo est fourni sur fond blanc opaque :
-   * il doit alors être posé sur une carte blanche (cf. maquette).
+   * Traitement du fond quand le logo n'est pas détouré :
+   * `'white'` pose une carte blanche sous un logo livré sur fond blanc
+   * (cf. maquette), `'opaque'` arrondit et allège un logo livré sur un fond
+   * plein, pour qu'il ne fasse pas tuile au milieu des marques détourées.
+   * Absent pour un logo transparent, le cas courant.
    */
-  needsWhiteCard?: boolean
+  logoBackground?: 'white' | 'opaque'
   /** Remarque interne à lever avec l'organisation (non affichée). */
   note?: string
 }
