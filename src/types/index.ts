@@ -38,6 +38,11 @@ export interface Person {
   /** Instrument ou fonction : « Trompette », « Piano »… */
   instrument: string
   /**
+   * Fonction particulière affichée sous le nom, quand la personne en occupe
+   * une : « Président du jury ».
+   */
+  position?: string
+  /**
    * Biographie fournie par l'organisation (fichier « Page Bios DEF »),
    * découpée selon les paragraphes de la planche.
    */
@@ -58,6 +63,11 @@ export interface Partner {
   /** Site officiel du partenaire, `null` tant qu'il n'est pas confirmé. */
   url: string | null
   /**
+   * Intitulé du lien pour les lecteurs d'écran, quand « site du partenaire »
+   * serait inexact — un article de présentation, par exemple.
+   */
+  linkLabel?: string
+  /**
    * Traitement du fond quand le logo n'est pas détouré :
    * `'white'` pose une carte blanche sous un logo livré sur fond blanc
    * (cf. maquette), `'opaque'` arrondit et allège un logo livré sur un fond
@@ -73,6 +83,26 @@ export interface Partner {
   caption?: string
   /** Remarque interne à lever avec l'organisation (non affichée). */
   note?: string
+}
+
+/**
+ * Étape du parcours d'inscription. Les deux étapes sont obligatoires :
+ * HelloAsso et le formulaire de renseignement des candidats.
+ */
+export interface RegistrationStep {
+  id: string
+  /** Intitulé de l'étape. */
+  title: string
+  /** Restriction éventuelle : « Niveau Excellence uniquement ». */
+  condition?: string
+  /** Ce que l'étape accomplit, en une phrase. */
+  description: string
+  /** Libellé du bouton. */
+  cta: string
+  /** Service qui héberge l'étape, annoncé aux lecteurs d'écran. */
+  service: string
+  /** URL de l'étape, `null` tant qu'elle n'est pas connue. */
+  url: string | null
 }
 
 /** Document téléchargeable (règlement, programme…). */

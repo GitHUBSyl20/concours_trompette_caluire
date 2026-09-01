@@ -1,3 +1,14 @@
+/* Le mur de logos ne dit pas de lui-même qu'il est cliquable. */
+.partners .section__title {
+  margin-bottom: var(--space-md);
+}
+
+.partners__hint {
+  margin-bottom: var(--space-xl);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
 .partners__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
@@ -17,6 +28,9 @@
 /* Le lien couvre toute la case, légende comprise : plus confortable au doigt. */
 .partners__link {
   width: 100%;
+  /* Le lien est une vignette, pas du texte : le soulignement barrerait la
+     légende posée sous le logo. */
+  text-decoration: none;
   border-radius: var(--radius-md);
   transition:
     opacity var(--transition),

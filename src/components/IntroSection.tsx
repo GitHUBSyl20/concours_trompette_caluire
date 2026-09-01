@@ -3,8 +3,8 @@ import { sectionContent } from '../data/siteData'
 /**
  * Présentation du concours.
  *
- * TODO — le texte de présentation n'a pas encore été fourni par
- * l'organisation ; un encart d'attente est affiché à la place.
+ * Le texte vit dans `siteData` sous forme de paragraphes ; l'encart
+ * d'attente reste en place au cas où il repasserait à `null`.
  */
 function IntroSection() {
   const { title, body } = sectionContent.intro
@@ -17,7 +17,11 @@ function IntroSection() {
         </h2>
 
         {body ? (
-          <p>{body}</p>
+          body.map((paragraph) => (
+            <p className="section__text" key={paragraph}>
+              {paragraph}
+            </p>
+          ))
         ) : (
           <p className="placeholder">
             Texte de présentation à recevoir de l'organisation.

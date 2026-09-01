@@ -116,6 +116,11 @@ button {
   margin-bottom: var(--space-xl);
 }
 
+/** Corps de texte d'une section : paragraphes successifs espacés. */
+.section__text + .section__text {
+  margin-top: var(--space-md);
+}
+
 /** Texte en attente de contenu définitif — visible et volontairement neutre. */
 .placeholder {
   padding: var(--space-lg);
@@ -197,8 +202,19 @@ button {
   color: var(--color-on-purple);
 }
 
+/* Variante lisible sur un fond violet, où `button--primary` disparaîtrait. */
+.button--on-purple {
+  background-color: var(--color-gold);
+  color: var(--color-ink);
+}
+
+.button--on-purple:hover {
+  background-color: var(--color-gold-light);
+  color: var(--color-ink);
+}
+
 /**
- * Bouton d'inscription en attente de l'URL HelloAsso, et sa note visible.
+ * Bouton d'inscription dont le lien n'est pas encore connu, et sa note visible.
  * `color: inherit` : la note se pose aussi bien sur le fond blanc du hero
  * que sur le violet de la section d'inscription.
  */

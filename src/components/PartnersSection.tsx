@@ -23,6 +23,8 @@ function PartnersSection() {
           {sectionContent.partners.title}
         </h2>
 
+        <p className="partners__hint">{sectionContent.partners.hint}</p>
+
         <ul className="partners__list">
           {partners.map((partner) => {
             const logo = (
@@ -52,7 +54,9 @@ function PartnersSection() {
                     rel="noopener noreferrer"
                     /* L'`alt` du logo nomme déjà le partenaire ; on précise
                        seulement que le lien ouvre un site externe. */
-                    aria-label={`${partner.name} (site du partenaire)`}
+                    aria-label={
+                      partner.linkLabel ?? `${partner.name} (site du partenaire)`
+                    }
                   >
                     {logo}
                     {caption}

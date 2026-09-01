@@ -16,6 +16,7 @@ import type {
   NavItem,
   Partner,
   Person,
+  RegistrationStep,
   SiteDocument,
 } from '../types'
 
@@ -25,9 +26,17 @@ import type {
 
 export const eventInfo: EventInfo = {
   title: '1er concours de trompette de Caluire-et-Cuire',
-  // Dates lues sur le logo de la maquette : « 29-30 Nov. 26 ».
-  dates: '29 et 30 novembre 2026',
-  datesISO: { start: '2026-11-29', end: '2026-11-30' },
+  /**
+   * Dates confirmées par la billetterie HelloAsso de l'AMC2 : « samedi 28 et
+   * dimanche 29 novembre 2026 ». Le calendrier concorde, le 28 novembre 2026
+   * étant un samedi.
+   *
+   * TODO — le logo de la maquette porte « 29-30 Nov. 26 », de même que
+   * l'image de partage qui en est tirée (`/images/og-concours-trompette.png`).
+   * Faire ré-exporter ces visuels par la graphiste.
+   */
+  dates: '28 et 29 novembre 2026',
+  datesISO: { start: '2026-11-28', end: '2026-11-29' },
   city: 'Caluire-et-Cuire (69)',
   venue: {
     name: 'AMC2 Centre Ville',
@@ -41,9 +50,26 @@ export const eventInfo: EventInfo = {
 /* -------------------------------------------------------------------------- */
 
 export const externalLinks = {
-  // TODO — URL HelloAsso définitive non disponible.
-  // Le CTA « S'inscrire » est désactivé tant que cette valeur vaut `null`.
-  helloAsso: null as string | null,
+  /**
+   * Billetterie HelloAsso du concours : première des deux démarches
+   * d'inscription (cf. `sectionContent.registration.steps`).
+   */
+  helloAsso:
+    'https://www.helloasso.com/associations/association-musicale-de-caluire-et-cuire/evenements/concours-de-trompette-2026-amc2' as
+      | string
+      | null,
+  /**
+   * Formulaire recueillant les informations des candidats : seconde démarche,
+   * tout aussi obligatoire que la première. Adresse confirmée par
+   * l'organisation le 01/09/2026.
+   *
+   * TODO — la description de la billetterie HelloAsso renvoie encore vers
+   * `forms.office.com/e/yFmfM4jSpQ` : à corriger côté AMC2.
+   */
+  registrationForm:
+    'https://forms.cloud.microsoft/e/N4TXkkVQjp?origin=lprLink' as
+      | string
+      | null,
   // Site de l'AMC2, d'où le mini-site sera accessible.
   amc2: 'https://www.musicamc2.fr/' as string | null,
 }
@@ -75,9 +101,10 @@ export const navItems: NavItem[] = [
  * Reprises telles quelles de la planche « CATÉGORIES », ponctuation
  * inclusive comprise.
  *
- * TODO — « Moyen » et « Supérieur » portent la même date limite de
- * naissance (01/07/2008) dans la maquette. Incohérence à faire trancher
- * par l'organisation : ne pas corriger arbitrairement.
+ * Les deux dernières lignes suivent la billetterie HelloAsso de l'AMC2
+ * (Supérieur 01/07/2004, Excellence 01/07/2002) et non la maquette, qui
+ * donnait à « Supérieur » la même date qu'à « Moyen » et décalait
+ * « Excellence » d'autant.
  */
 export const categories: Category[] = [
   {
@@ -99,18 +126,16 @@ export const categories: Category[] = [
     id: 'moyen',
     name: 'Moyen',
     birthCondition: 'Né·e après le 01/07/2008',
-    note: 'Même date limite que la catégorie « Supérieur » : à vérifier.',
   },
   {
     id: 'superieur',
     name: 'Supérieur',
-    birthCondition: 'Né·e après le 01/07/2008',
-    note: 'Même date limite que la catégorie « Moyen » : à vérifier.',
+    birthCondition: 'Né·e après le 01/07/2004',
   },
   {
     id: 'excellence',
     name: 'Excellence',
-    birthCondition: 'Né·e après le 01/07/2004',
+    birthCondition: 'Né·e après le 01/07/2002',
   },
 ]
 
@@ -137,6 +162,7 @@ export const people: Person[] = [
     name: 'Clément Saunier',
     role: 'jury',
     instrument: 'Trompette',
+    position: 'Président du jury',
     // Version transmise par l'organisation le 01/09/2026, qui remplace
     // celle du fichier « Page Bios DEF.ai ».
     bio: [
@@ -282,8 +308,10 @@ export const partners: Partner[] = [
     id: 'ic-by-acquisto',
     name: 'IC by Acquisto',
     logo: '/logos/partners/ic-by-acquisto.webp',
-    // TODO — aucun site trouvé sous ce nom : lien à demander à l'organisation.
-    url: null,
+    // La marque n'a pas de site : le lien mène à l'article que Trompette
+    // Actus, autre partenaire du concours, lui consacre.
+    url: 'https://trompetteactus.fr/2025/02/19/decouvrez-les-trompettes-ic-par-antoine-acquisto/',
+    linkLabel: 'IC by Acquisto (présentation sur Trompette Actus)',
   },
   { id: 'js-musique', name: 'JS Musique', logo: '/logos/partners/js-musique.webp', url: 'https://www.jsmusique.com/' },
   {
@@ -294,7 +322,14 @@ export const partners: Partner[] = [
     // TODO — logo rangé avec ceux de JS Musique : partenaire distinct ou enseigne liée ?
   },
   { id: 'slide-to-play', name: 'Slide to Play', logo: '/logos/partners/slide-to-play.webp', url: 'https://slidetoplay.fr/' },
-  { id: 'trompette-actus', name: 'Trompette Actus', logo: '/logos/partners/trompette-actus.webp', url: 'https://trompetteactus.fr/' },
+  {
+    id: 'trompette-actus',
+    name: 'Trompette Actus',
+    logo: '/logos/partners/trompette-actus.webp',
+    url: 'https://trompetteactus.fr/',
+    // Logo dessiné, sans lettrage lisible à la taille d'affichage.
+    caption: 'Trompette Actus',
+  },
   {
     id: 'amc2',
     name: 'AMC2 — Association Musicale de Caluire et Cuire',
@@ -357,9 +392,9 @@ export const documents: SiteDocument[] = [
 
 export const contact: ContactInfo = {
   organisation: 'AMC2 — Association Musicale de Caluire et Cuire',
-  // TODO — coordonnées de contact du concours non communiquées.
-  email: null,
-  phone: null,
+  email: 'communication@musicamc2.fr',
+  phone: '04 78 08 14 04',
+  // TODO — adresse postale de l'association non communiquée.
   address: null,
 }
 
@@ -374,12 +409,79 @@ export const sectionContent = {
     subtitle:
       'Retrouvez ici toutes les informations concernant le concours (programme, jury, règlement…)',
   },
-  // TODO — texte de présentation non fourni par l'organisation.
-  intro: { title: 'Présentation', body: null as string | null },
+  /**
+   * Texte fourni par l'organisation, découpé en deux paragraphes :
+   * l'événement, puis le public visé. Apostrophes typographiques comme
+   * dans les biographies.
+   */
+  intro: {
+    title: 'Présentation',
+    body: [
+      'L’Association Musicale de Caluire-et-Cuire (AMC2) organise le premier concours de trompette de la ville. Il se tiendra les samedi 28 et dimanche 29 novembre 2026 à l’école de musique : 1 rue Jean Moulin, 69300 Caluire-et-Cuire.',
+      'Cet événement convivial et exigeant s’adresse aux trompettistes de moins de 25 ans répartis en 6 catégories, souhaitant partager leur passion, progresser et se produire dans des conditions professionnelles.',
+    ] as string[] | null,
+  },
   categories: { title: 'Catégories' },
-  // TODO — contenu du règlement non fourni (la planche ne montre que le titre).
-  rules: { title: 'Règlement du concours', body: null as string | null },
+  /**
+   * TODO — le règlement n'est pas arrêté : il dépend du programme, en
+   * attente de validation par Clément Saunier. Formulation publique de
+   * cette attente ; le message reçu de l'organisation était : « Le règlement
+   * est en cours de validation et lié au programme. Quand le programme sera
+   * validé par Clément, tout sera validé mais pour l'instant nous n'avons
+   * pas les infos. »
+   */
+  rules: {
+    title: 'Règlement du concours',
+    body: [
+      'Le règlement du concours est en cours de validation : il est lié au programme, qui n’est pas encore arrêté.',
+      'Il sera publié sur cette page dès qu’il sera définitif.',
+    ] as string[] | null,
+  },
   jury: { title: 'Jury / Accompagnatrices' },
-  partners: { title: 'Partenaires' },
-  registration: { title: "S'inscrire", cta: "S'inscrire" },
+  partners: {
+    title: 'Partenaires',
+    hint: 'Cliquez sur un logo pour découvrir le partenaire.',
+  },
+  registration: {
+    title: "S'inscrire",
+    cta: "S'inscrire",
+    /**
+     * Formulation reprise de la billetterie HelloAsso : l'organisation
+     * encaisse l'inscription sur HelloAsso, recueille les informations des
+     * candidats par le formulaire, et attend en plus les partitions pour le
+     * seul niveau Excellence.
+     */
+    requirement:
+      "L'inscription n'est validée qu'après réception de tous ces éléments.",
+    steps: [
+      {
+        id: 'helloasso',
+        title: 'Inscription sur HelloAsso',
+        description:
+          "L'inscription au concours passe par la plateforme HelloAsso de l'AMC2.",
+        cta: "S'inscrire sur HelloAsso",
+        service: 'HelloAsso',
+        url: externalLinks.helloAsso,
+      },
+      {
+        id: 'formulaire',
+        title: "Formulaire d'inscription",
+        description:
+          "Le formulaire transmet à l'organisation les informations du candidat.",
+        cta: 'Remplir le formulaire',
+        service: 'Microsoft Forms',
+        url: externalLinks.registrationForm,
+      },
+      {
+        id: 'partitions',
+        title: "Partitions d'accompagnement",
+        condition: 'Niveau Excellence uniquement',
+        description:
+          "Les partitions d'accompagnement piano sont à envoyer scannées avant la clôture des inscriptions.",
+        cta: 'Envoyer les partitions',
+        service: 'e-mail',
+        url: 'mailto:communication@musicamc2.fr',
+      },
+    ] satisfies RegistrationStep[],
+  },
 }

@@ -1,24 +1,34 @@
 import { useId } from 'react'
-import { externalLinks, sectionContent } from '../data/siteData'
 
 interface RegistrationButtonProps {
-  /** Variante visuelle du bouton. */
-  variant?: 'primary' | 'secondary'
+  /**
+   * URL visée. `null` tant qu'elle n'est pas connue : le bouton est alors
+   * rendu inactif, accompagné d'une note, plutôt qu'en lien mort.
+   */
+  href: string | null
+  /** Libellé affiché sur le bouton. */
+  label: string
+  /** Service qui héberge la page, annoncé aux lecteurs d'écran. */
+  service?: string
+  /** Note affichée sous le bouton inactif. */
+  pendingNote?: string
+  /** Variante visuelle. `on-purple` pour les fonds violets. */
+  variant?: 'primary' | 'secondary' | 'on-purple'
   className?: string
 }
 
 /**
- * Bouton d'inscription vers HelloAsso.
- *
- * Utilisé dans le hero et la section d'inscription : il centralise le
- * comportement à adopter tant que l'URL HelloAsso n'est pas connue (rendu
- * inactif plutôt que lien mort).
+ * Bouton menant à une étape d'inscription hébergée à l'extérieur.
  *
  * L'explication accompagne le bouton **à l'écran** et pas seulement pour les
  * lecteurs d'écran : sans elle, un bouton grisé qui ne répond pas au doigt
  * n'apprend rien à personne.
  */
 function RegistrationButton({
+  href,
+  label,
+  service,
+  pendingNote = 'Ce lien sera publié prochainement.',
   variant = 'primary',
   className,
 }: RegistrationButtonProps) {
@@ -27,7 +37,7 @@ function RegistrationButton({
     .filter(Boolean)
     .join(' ')
 
-  if (!externalLinks.helloAsso) {
+  if (!href) {
     return (
       <span className="cta-pending">
         <span
@@ -36,24 +46,33 @@ function RegistrationButton({
           role="link"
           aria-describedby={noteId}
         >
-          {sectionContent.registration.cta}
+          {label}
         </span>
         <span className="cta-pending__note" id={noteId}>
-          Le lien d'inscription HelloAsso sera publié prochainement.
+          {pendingNote}
         </span>
       </span>
     )
   }
 
+  // Une adresse `mailto:` ouvre la messagerie, pas un onglet.
+  const opensNewTab = !href.startsWith('mailto:')
+
   return (
     <a
       className={classes}
-      href={externalLinks.helloAsso}
-      target="_blank"
-      rel="noopener noreferrer"
+      href={href}
+      target={opensNewTab ? '_blank' : undefined}
+      rel={opensNewTab ? 'noopener noreferrer' : undefined}
     >
-      {sectionContent.registration.cta}
-      <span className="visually-hidden"> (HelloAsso, nouvel onglet)</span>
+      {label}
+      <span className="visually-hidden">
+        {opensNewTab
+          ? service
+            ? ` (${service}, nouvel onglet)` 
+            : ' (nouvel onglet)'
+          : ' (ouvre votre messagerie)'}
+      </span>
     </a>
   )
 }

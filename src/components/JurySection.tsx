@@ -36,6 +36,9 @@ function PersonBlock({ person }: { person: Person }) {
 
         <div className="person__body">
           <h4 className="person__name">{person.name}</h4>
+          {person.position && (
+            <p className="person__position">{person.position}</p>
+          )}
           {person.bio.map((paragraph, index) => (
             <p className="person__bio" key={index}>
               {paragraph}

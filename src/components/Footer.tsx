@@ -3,8 +3,6 @@ import './Footer.css'
 
 /**
  * Pied de page : organisateur, coordonnées et retour vers le site AMC2.
- *
- * TODO — coordonnées de contact non communiquées.
  */
 function Footer() {
   return (

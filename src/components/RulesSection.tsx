@@ -4,7 +4,7 @@ import './RulesSection.css'
 /**
  * Règlement et programme du concours.
  *
- * TODO — ni le texte du règlement ni les PDF associés n'ont été fournis :
+ * TODO — le règlement n'est pas arrêté et les PDF n'ont pas été fournis :
  * les documents sont listés mais restent inactifs tant que `file` vaut `null`.
  */
 function RulesSection() {
@@ -18,7 +18,11 @@ function RulesSection() {
         </h2>
 
         {body ? (
-          <p>{body}</p>
+          body.map((paragraph) => (
+            <p className="section__text" key={paragraph}>
+              {paragraph}
+            </p>
+          ))
         ) : (
           <p className="placeholder">
             Texte du règlement à recevoir de l'organisation.

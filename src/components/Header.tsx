@@ -16,7 +16,9 @@ import './Header.css'
  * dates intégrées. Seul l'export vertical existe en SVG ; les versions
  * horizontales fournies sont des PDF dont les dégradés se rasterisent.
  * Demander à la graphiste un export SVG du « Logo format horizontal » :
- * le remplacement se fera sur la seule ligne `src` ci-dessous.
+ * le remplacement se fera sur la seule ligne `src` ci-dessous. Les dates
+ * du logo sont à corriger au passage : la maquette porte « 29-30 Nov. 26 »
+ * quand le concours se tient les 28 et 29 novembre 2026.
  */
 
 /**

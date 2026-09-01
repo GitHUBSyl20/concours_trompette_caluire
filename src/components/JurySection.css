@@ -75,6 +75,17 @@
   line-height: 1.2;
 }
 
+/* Fonction sous le nom : lue avant la biographie, sans lui voler la vedette. */
+.person__position {
+  margin-top: calc(var(--space-sm) * -1);
+  margin-bottom: var(--space-sm);
+  color: var(--color-copper);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 .person__bio {
   font-size: clamp(0.875rem, 1vw, 0.9375rem);
   line-height: 1.55;

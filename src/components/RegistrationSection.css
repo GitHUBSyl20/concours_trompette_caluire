@@ -16,6 +16,92 @@
   color: var(--color-gold);
 }
 
+/* Le conteneur est large pour loger trois étapes de front ; le texte, lui,
+   garde une longueur de ligne confortable. */
 .registration__details {
+  max-width: 52ch;
   font-size: var(--text-lg);
+}
+
+/**
+ * Les deux démarches d'inscription, présentées comme des étapes numérotées :
+ * une carte qui en cacherait une ferait passer l'autre pour facultative.
+ */
+.registration__requirement {
+  max-width: 46ch;
+  color: var(--color-gold-light);
+  font-weight: var(--weight-semibold);
+}
+
+.registration__steps {
+  display: grid;
+  gap: var(--space-lg);
+  width: 100%;
+  max-width: 60rem;
+  margin: 0;
+  padding: 0;
+  counter-reset: registration-step;
+  list-style: none;
+  text-align: left;
+}
+
+/* Deux étapes sur trois quand la place manque, trois de front ensuite. */
+@media (min-width: 34em) {
+  .registration__steps {
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  }
+}
+
+.registration__step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-lg);
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: var(--radius-lg);
+  background-color: rgb(255 255 255 / 8%);
+}
+
+.registration__step::before {
+  counter-increment: registration-step;
+  content: 'Étape ' counter(registration-step);
+  color: var(--color-gold);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.registration__step-title {
+  margin: 0;
+  color: var(--color-on-purple);
+  font-size: var(--text-lg);
+}
+
+.registration__step-condition {
+  margin: 0;
+  color: var(--color-gold);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+}
+
+.registration__step-description {
+  margin: 0;
+  font-size: var(--text-base);
+}
+
+/* Aligne les boutons quand les descriptions n'ont pas la même hauteur. */
+.registration__step-button,
+.registration__step .cta-pending {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+.registration__step .cta-pending {
+  align-items: flex-start;
+  text-align: left;
+}
+
+.registration__step .cta-pending__note {
+  text-align: left;
 }
