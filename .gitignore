@@ -26,3 +26,7 @@ dist-ssr
 # Sources graphiques (fichiers Illustrator/PDF lourds, référence locale)
 # Retirer cette ligne si l'équipe souhaite les versionner.
 design
+
+# Notes de travail locales, jamais versionnees
+QUESTION-SITE.txt
+REPRISE.md
