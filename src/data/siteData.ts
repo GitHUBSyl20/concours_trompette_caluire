@@ -330,6 +330,8 @@ export const partners: Partner[] = [
     logo: '/logos/partners/3dzir.webp',
     url: 'https://www.instagram.com/chalayerphilippe/',
     logoBackground: 'opaque',
+    // Le lettrage du rendu 3D est illisible à 60 px : on le redonne en clair.
+    caption: '3DZiR — Embouchures et becs',
     note: 'Ajouté hors planche « PARTENAIRES ». Logo en rendu 3D sur fond plein, contrairement aux autres.',
   },
 ]

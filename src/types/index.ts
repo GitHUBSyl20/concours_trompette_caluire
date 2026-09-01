@@ -65,6 +65,12 @@ export interface Partner {
    * Absent pour un logo transparent, le cas courant.
    */
   logoBackground?: 'white' | 'opaque'
+  /**
+   * Légende affichée sous le logo, pour un visuel qu'on ne déchiffre pas à
+   * la taille d'affichage. À réserver à ces cas : la planche « PARTENAIRES »
+   * est un mur de logos, sans texte.
+   */
+  caption?: string
   /** Remarque interne à lever avec l'organisation (non affichée). */
   note?: string
 }

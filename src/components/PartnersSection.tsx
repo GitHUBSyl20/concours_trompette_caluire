@@ -38,6 +38,10 @@ function PartnersSection() {
               />
             )
 
+            const caption = partner.caption ? (
+              <span className="partners__caption">{partner.caption}</span>
+            ) : null
+
             return (
               <li className="partners__item" key={partner.id}>
                 {partner.url ? (
@@ -51,9 +55,13 @@ function PartnersSection() {
                     aria-label={`${partner.name} (site du partenaire)`}
                   >
                     {logo}
+                    {caption}
                   </a>
                 ) : (
-                  logo
+                  <>
+                    {logo}
+                    {caption}
+                  </>
                 )}
               </li>
             )

@@ -5,19 +5,17 @@
   gap: var(--space-xl);
 }
 
-.partners__item {
+.partners__item,
+.partners__link {
+  /* Colonne : le logo, puis l'éventuelle légende sous lui. */
   display: flex;
-  align-items: center;
+  flex-direction: column;
   justify-content: center;
+  gap: var(--space-xs);
 }
 
-/* Le lien couvre toute la case pour rester confortable au doigt. */
+/* Le lien couvre toute la case, légende comprise : plus confortable au doigt. */
 .partners__link {
-  /* Flex plutôt que `block` : un logo qui ne prend pas toute la largeur
-     (variante `--opaque`) reste centré dans sa case. */
-  display: flex;
-  align-items: center;
-  justify-content: center;
   width: 100%;
   border-radius: var(--radius-md);
   transition:
@@ -59,8 +57,23 @@
   /* `width: auto` est indispensable : sur la largeur pleine des autres logos,
      l'arrondi et l'ombre cerneraient une boîte vide autour de l'image. */
   width: auto;
+  /* La colonne étire ses enfants : on recentre celui-ci, plus étroit. */
+  align-self: center;
   height: 3.75rem;
   max-height: none;
   border-radius: var(--radius-md);
   box-shadow: var(--shadow-sm);
+}
+
+/**
+ * Nom du partenaire donné en clair sous son logo, quand celui-ci n'est pas
+ * déchiffrable à la taille d'affichage. Volontairement discret : la planche
+ * ne prévoit aucun texte dans la grille.
+ */
+.partners__caption {
+  color: var(--color-muted);
+  font-size: 0.75rem;
+  line-height: 1.35;
+  text-align: center;
+  text-wrap: balance;
 }
