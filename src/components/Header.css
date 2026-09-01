@@ -22,6 +22,11 @@
   align-items: center;
   gap: clamp(1.5rem, 4vw, 3.5rem);
   min-height: clamp(11rem, 24vw, 21.875rem);
+  /* La ligne ci-dessus ne regarde que la largeur : sur un téléphone tenu en
+     paysage, elle faisait remplir tout l'écran au bandeau. On la borne donc
+     aussi sur la hauteur visible. Déclarée après, elle est simplement
+     ignorée là où `svh` n'existe pas (Safari < 15.4). */
+  min-height: min(clamp(11rem, 24vw, 21.875rem), 66svh);
   padding-block: var(--space-lg);
 }
 
@@ -97,5 +102,65 @@
 
   .banner__title {
     max-width: none;
+  }
+}
+
+/* --- Très petit écran : le logo pesait à lui seul un tiers de la hauteur -- */
+
+@media (max-width: 360px) {
+  .banner__inner {
+    padding-block: var(--space-lg);
+  }
+
+  .banner__logo {
+    height: clamp(5rem, 24vw, 6.5rem);
+  }
+}
+
+/* --- Écran bas : téléphone tenu en paysage ------------------------------- */
+
+/**
+ * Sans ces règles, le bandeau occupait la totalité d'un écran de 320 px de
+ * haut : le visiteur ne voyait ni la navigation ni une ligne de contenu.
+ * Déclarées après les blocs ci-dessus pour l'emporter sur eux.
+ */
+@media (max-height: 500px) {
+  .banner__inner {
+    gap: var(--space-sm) clamp(1rem, 4vw, 3.5rem);
+    min-height: 0;
+    padding-block: var(--space-md);
+  }
+
+  .banner__logo {
+    height: clamp(3.5rem, 22vh, 6rem);
+  }
+
+  .banner__title {
+    font-size: clamp(0.9375rem, 2.4vh, 1.25rem);
+  }
+}
+
+/**
+ * En paysage, la hauteur est la ressource rare et la largeur ne manque pas :
+ * on revient à la composition en deux colonnes bien avant le seuil habituel
+ * de 720 px, ce qui divise la hauteur du bandeau par deux.
+ */
+@media (max-height: 500px) and (min-width: 480px) {
+  .banner__inner {
+    grid-template-columns: 1fr 1px 1fr;
+    justify-items: stretch;
+  }
+
+  .banner__brand {
+    justify-self: center;
+  }
+
+  .banner__divider {
+    width: 1px;
+    height: clamp(3rem, 20vh, 8rem);
+  }
+
+  .banner__intro {
+    text-align: start;
   }
 }

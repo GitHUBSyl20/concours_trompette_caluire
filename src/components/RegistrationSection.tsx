@@ -1,4 +1,4 @@
-import { eventInfo, externalLinks, sectionContent } from '../data/siteData'
+import { eventInfo, sectionContent } from '../data/siteData'
 import RegistrationButton from './RegistrationButton'
 import './RegistrationSection.css'
 
@@ -22,13 +22,8 @@ function RegistrationSection() {
           {eventInfo.title} — {eventInfo.dates}, {eventInfo.city}
         </p>
 
+        {/* La note d'attente est portée par le bouton lui-même. */}
         <RegistrationButton />
-
-        {!externalLinks.helloAsso && (
-          <p className="registration__note">
-            Le lien d'inscription HelloAsso sera publié prochainement.
-          </p>
-        )}
       </div>
     </section>
   )

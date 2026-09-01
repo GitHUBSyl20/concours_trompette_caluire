@@ -52,6 +52,33 @@
     scroll-snap-type: x proximity;
     /* Masque la barre de défilement sans empêcher le geste. */
     scrollbar-width: none;
+
+    /**
+     * Ombre portée au bord vers lequel il reste des liens à atteindre.
+     * Les deux premières couches sont des caches de la couleur du fond,
+     * attachées au contenu (`local`) : elles suivent le défilement et
+     * viennent recouvrir l'ombre correspondante une fois la fin atteinte.
+     * Les deux suivantes sont les ombres, attachées à la boîte (`scroll`),
+     * donc immobiles. L'indice apparaît et disparaît tout seul, sans
+     * JavaScript et sans point de rupture à tenir à jour.
+     */
+    background-image:
+      linear-gradient(to right, var(--color-surface) 60%, transparent),
+      linear-gradient(to left, var(--color-surface) 60%, transparent),
+      linear-gradient(to right, rgb(42 23 48 / 16%), transparent),
+      linear-gradient(to left, rgb(42 23 48 / 16%), transparent);
+    background-position:
+      left,
+      right,
+      left,
+      right;
+    background-size:
+      2.5rem 100%,
+      2.5rem 100%,
+      1rem 100%,
+      1rem 100%;
+    background-repeat: no-repeat;
+    background-attachment: local, local, scroll, scroll;
   }
 
   .subnav__list::-webkit-scrollbar {

@@ -19,8 +19,3 @@
 .registration__details {
   font-size: var(--text-lg);
 }
-
-.registration__note {
-  color: var(--color-gold-light);
-  font-size: var(--text-sm);
-}
