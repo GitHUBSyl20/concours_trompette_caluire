@@ -22,8 +22,11 @@ import './Header.css'
  * `mix-blend-mode`, et une SVG chargée en `<img>` ne voit jamais le fond de
  * la page. Sans fond interne, l'étoile sort en tache sombre.
  *
- * TODO — ce logo porte les dates et la ville, que le `h1` et la ligne dorée
- * ci-dessous redisent : la ville apparaît trois fois dans le bandeau.
+ * Ce logo porte lui-même les dates et la ville. Le `h1` s'en tient donc à
+ * l'accroche, sans redire les dates, et la ligne dorée « CALUIRE-ET-CUIRE
+ * (69) » a été retirée : elle faisait apparaître la ville trois fois dans le
+ * bandeau. Le `h1` garde « Caluire-et-Cuire », qui porte le référencement
+ * local et reste lu même si le logo ne charge pas.
  */
 
 /**
@@ -61,10 +64,8 @@ function Header() {
 
         <div className="banner__intro">
           <h1 className="banner__title">
-            {keepCityWhole(sectionContent.hero.title)},{' '}
-            <time dateTime={eventInfo.datesISO.start}>{eventInfo.dates}</time>
+            {keepCityWhole(sectionContent.hero.title)}
           </h1>
-          <p className="banner__place">{eventInfo.city}</p>
         </div>
       </div>
     </header>
