@@ -267,7 +267,11 @@ export const accompagnatrices = people.filter(
 /* -------------------------------------------------------------------------- */
 
 /**
- * Ordre repris de la planche « PARTENAIRES ».
+ * Ordre repris de la planche « PARTENAIRES », à une réserve près : la Ville
+ * de Caluire et Cuire et l'AMC2 sont remontées en tête et marquées
+ * `institution`. La planche les mêlait aux marques du métier ; un soutien
+ * institutionnel ne se lit pas comme un partenariat commercial, et les deux
+ * familles sont donc affichées en groupes distincts.
  *
  * TODO — aucune URL n'a été communiquée par l'organisation. Celles qui
  * figurent ci-dessous ont été retrouvées à partir du nom de chaque
@@ -276,6 +280,24 @@ export const accompagnatrices = people.filter(
  * d'une page distributeur).
  */
 export const partners: Partner[] = [
+  /* Institutions : la ville qui accueille le concours et l'association qui
+     l'organise. Elles ouvrent la liste et sont affichées à part. */
+  {
+    id: 'ville-de-caluire-et-cuire',
+    name: 'Ville de Caluire et Cuire',
+    logo: '/logos/partners/ville-de-caluire-et-cuire.webp',
+    url: 'https://www.ville-caluire.fr/',
+    institution: true,
+  },
+  {
+    id: 'amc2',
+    name: 'AMC2 — Association Musicale de Caluire et Cuire',
+    logo: '/logos/partners/amc2.webp',
+    url: 'https://www.musicamc2.fr/',
+    institution: true,
+  },
+
+  /* Partenaires professionnels : marques, ateliers et enseignes du métier. */
   {
     id: 'a-mute',
     name: 'A-Mute',
@@ -330,18 +352,6 @@ export const partners: Partner[] = [
     // Logo dessiné, sans lettrage lisible à la taille d'affichage.
     caption: 'Trompette Actus',
   },
-  {
-    id: 'amc2',
-    name: 'AMC2 — Association Musicale de Caluire et Cuire',
-    logo: '/logos/partners/amc2.webp',
-    url: 'https://www.musicamc2.fr/',
-  },
-  {
-    id: 'ville-de-caluire-et-cuire',
-    name: 'Ville de Caluire et Cuire',
-    logo: '/logos/partners/ville-de-caluire-et-cuire.webp',
-    url: 'https://www.ville-caluire.fr/',
-  },
   // TODO — les deux partenaires suivants figurent dans le dossier de logos
   // fourni mais pas sur la planche « PARTENAIRES ». Publication à confirmer.
   // Ils sont par ailleurs liés : « Piston Magazine » est le magazine
@@ -375,6 +385,16 @@ export const partners: Partner[] = [
     note: 'Ajouté hors planche « PARTENAIRES ». Logo en rendu 3D sur fond plein, contrairement aux autres.',
   },
 ]
+
+/** Les deux institutions, affichées au-dessus des marques du métier. */
+export const institutionPartners = partners.filter(
+  (partner) => partner.institution,
+)
+
+/** Marques, ateliers et enseignes du métier. */
+export const professionalPartners = partners.filter(
+  (partner) => !partner.institution,
+)
 
 /* -------------------------------------------------------------------------- */
 /* Documents téléchargeables                                                   */
@@ -441,6 +461,13 @@ export const sectionContent = {
   partners: {
     title: 'Partenaires',
     hint: 'Cliquez sur un logo pour découvrir le partenaire.',
+    /* Intitulés des deux groupes. La planche « PARTENAIRES » est un mur de
+       logos sans texte, mais sans ces deux lignes la séparation se lirait
+       comme un accident de mise en page. */
+    groups: {
+      institutions: 'Institutions',
+      professionals: 'Partenaires professionnels',
+    },
   },
   registration: {
     title: "S'inscrire",

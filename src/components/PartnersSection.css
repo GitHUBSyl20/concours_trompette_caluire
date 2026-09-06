@@ -9,11 +9,47 @@
   font-size: var(--text-sm);
 }
 
+/**
+ * Intitulé de groupe. Discret à dessein : la planche « PARTENAIRES » ne
+ * prévoit aucun texte dans la grille, ces deux lignes ne sont là que pour
+ * que la séparation entre institutions et professionnels se lise comme
+ * voulue et non comme un accident de mise en page.
+ */
+.partners__group-title {
+  margin-bottom: var(--space-lg);
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* Le second groupe reprend après la grille du premier. */
+.partners__list + .partners__group-title {
+  margin-top: var(--space-2xl);
+}
+
 .partners__list {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
   align-items: center;
   gap: var(--space-xl);
+}
+
+/**
+ * Le groupe des institutions ne compte que deux logos : sur une piste en
+ * `1fr`, chacun s'étirerait sur une demi-largeur. C'est la case qui est
+ * bornée, et non la piste : avec `repeat(auto-fit, minmax(9rem, 11rem))`,
+ * le nombre de pistes se calcule sur la borne haute et les deux logos
+ * s'empileraient dès le mobile. La grille garde donc le découpage du mur
+ * professionnel, et les cases sont simplement alignées à gauche.
+ */
+.partners__list--institutions {
+  justify-content: start;
+}
+
+.partners__list--institutions .partners__item {
+  max-width: 11rem;
 }
 
 .partners__item,

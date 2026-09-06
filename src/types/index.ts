@@ -63,6 +63,14 @@ export interface Partner {
   /** Site officiel du partenaire, `null` tant qu'il n'est pas confirmé. */
   url: string | null
   /**
+   * Marque une institution — la Ville de Caluire et Cuire et l'AMC2 — par
+   * opposition aux marques et enseignes du métier. Les deux familles sont
+   * affichées en groupes distincts : un soutien institutionnel ne se lit pas
+   * comme un partenariat commercial. Absent pour un partenaire
+   * professionnel, le cas courant.
+   */
+  institution?: true
+  /**
    * Intitulé du lien pour les lecteurs d'écran, quand « site du partenaire »
    * serait inexact — un article de présentation, par exemple.
    */
