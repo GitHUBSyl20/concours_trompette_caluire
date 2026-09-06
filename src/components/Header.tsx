@@ -12,13 +12,18 @@ import './Header.css'
  *
  * La navigation vit dans la barre fine collante (`StickyNav`).
  *
- * TODO — la maquette utilise le logo en composition horizontale, avec les
- * dates intégrées. Seul l'export vertical existe en SVG ; les versions
- * horizontales fournies sont des PDF dont les dégradés se rasterisent.
- * Demander à la graphiste un export SVG du « Logo format horizontal » :
- * le remplacement se fera sur la seule ligne `src` ci-dessous. Les dates
- * du logo sont à corriger au passage : la maquette porte « 29-30 Nov. 26 »
- * quand le concours se tient les 28 et 29 novembre 2026.
+ * Le logo est la composition horizontale de la maquette, enfin livrée en
+ * SVG. Ses dates sont vérifiées : il annonce « 28-29 Nov. 26 », et non le
+ * « 29-30 Nov. 26 » des planches. Le fichier d'origine est conservé dans
+ * `design/sources/logos/`, hors versionnement.
+ *
+ * La plaque violette arrondie de l'export a été remplacée par un fond violet
+ * à plat, conservé dans la SVG : l'étoile est faite de calques en
+ * `mix-blend-mode`, et une SVG chargée en `<img>` ne voit jamais le fond de
+ * la page. Sans fond interne, l'étoile sort en tache sombre.
+ *
+ * TODO — ce logo porte les dates et la ville, que le `h1` et la ligne dorée
+ * ci-dessous redisent : la ville apparaît trois fois dans le bandeau.
  */
 
 /**
@@ -45,10 +50,10 @@ function Header() {
         <a className="banner__brand" href="#top">
           <img
             className="banner__logo"
-            src="/logos/logo-concours.svg"
+            src="/logos/logo-concours-horizontal.svg"
             alt={`${eventInfo.title}, ${eventInfo.dates}`}
-            width="425"
-            height="340"
+            width="300"
+            height="116"
           />
         </a>
 

@@ -31,9 +31,9 @@ export const eventInfo: EventInfo = {
    * dimanche 29 novembre 2026 ». Le calendrier concorde, le 28 novembre 2026
    * étant un samedi.
    *
-   * TODO — le logo de la maquette porte « 29-30 Nov. 26 », de même que
-   * l'image de partage qui en est tirée (`/images/og-concours-trompette.png`).
-   * Faire ré-exporter ces visuels par la graphiste.
+   * Les planches portaient « 29-30 Nov. 26 » ; l'export SVG du logo livré le
+   * 6 septembre 2026 annonce bien « 28-29 Nov. 26 », et l'image de partage
+   * (`/images/og-concours-trompette.png`) en a été régénérée.
    */
   dates: '28 et 29 novembre 2026',
   datesISO: { start: '2026-11-28', end: '2026-11-29' },
