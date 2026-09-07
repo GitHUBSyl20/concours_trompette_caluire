@@ -61,10 +61,20 @@ export const externalLinks = {
   /**
    * Formulaire recueillant les informations des candidats : seconde démarche,
    * tout aussi obligatoire que la première. Adresse confirmée par
-   * l'organisation le 01/09/2026.
+   * l'organisation le 01/09/2026, puis reconfirmée le 07/09/2026 comme
+   * faisant foi. C'est bien celle-ci qu'il faut servir.
    *
-   * TODO — la description de la billetterie HelloAsso renvoie encore vers
-   * `forms.office.com/e/yFmfM4jSpQ` : à corriger côté AMC2.
+   * TODO — à corriger côté AMC2 : la description de la billetterie HelloAsso
+   * renvoie vers `forms.office.com/e/yFmfM4jSpQ`, qui est un formulaire
+   * distinct — même compte Microsoft, identifiant de formulaire différent, et
+   * non la même chose sous l'ancien domaine. Un candidat qui suit le lien
+   * affiché sur HelloAsso remplit donc le mauvais formulaire, et sa réponse
+   * atterrit dans un tableau que personne ne consulte.
+   *
+   * Constaté aussi le 07/09/2026 : les deux formulaires refusaient les
+   * réponses (« Ce formulaire n'accepte pas de réponses pour le moment »).
+   * Vraisemblablement parce que les inscriptions n'étaient pas ouvertes — à
+   * revérifier avant la mise en ligne.
    */
   registrationForm:
     'https://forms.cloud.microsoft/e/N4TXkkVQjp?origin=lprLink' as
