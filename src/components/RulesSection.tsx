@@ -4,8 +4,9 @@ import './RulesSection.css'
 /**
  * Règlement et programme du concours.
  *
- * TODO — le règlement n'est pas arrêté et les PDF n'ont pas été fournis :
- * les documents sont listés mais restent inactifs tant que `file` vaut `null`.
+ * Les documents sont listés mais restent inactifs tant que leur `file` vaut
+ * `null`. Le programme est fourni depuis le 09/09/2026 ; le règlement, qui en
+ * dépendait, est toujours en cours de validation et reste donc inactif.
  */
 function RulesSection() {
   const { title, body } = sectionContent.rules

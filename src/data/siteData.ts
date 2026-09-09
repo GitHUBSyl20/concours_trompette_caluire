@@ -394,6 +394,17 @@ export const partners: Partner[] = [
     caption: '3DZiR — Embouchures et becs',
     note: 'Ajouté hors planche « PARTENAIRES ». Logo en rendu 3D sur fond plein, contrairement aux autres.',
   },
+  // Ajouté le 09/09/2026, hors planche « PARTENAIRES ». Le lien mène au site
+  // Wix de l'académie, seul à répondre en https : le domaine
+  // `academie-surgeres.fr` n'existe qu'en http et n'est qu'un cadre posé
+  // autour du même site Wix.
+  {
+    id: 'academie-surgeres',
+    name: 'Académie de Cuivres et Percussions de Surgères',
+    logo: '/logos/partners/academie-cuivres-percussions-surgeres.webp',
+    url: 'https://academiesurgeres.wixsite.com/site',
+    note: "Ajouté hors planche « PARTENAIRES ». Académie cofondée par Clément Saunier, président du jury du concours.",
+  },
 ]
 
 /** Les deux institutions, affichées au-dessus des marques du métier. */
@@ -410,10 +421,22 @@ export const professionalPartners = partners.filter(
 /* Documents téléchargeables                                                   */
 /* -------------------------------------------------------------------------- */
 
-// TODO — aucun PDF de règlement ou de programme n'a été fourni.
+/**
+ * Le programme est fourni et déclaré définitif par l'organisation le
+ * 09/09/2026. Le règlement, qui en dépendait, reste en cours de validation.
+ *
+ * TODO — le programme porte encore une mention d'attente pour la catégorie
+ * préparatoire : « Éditions Pierre LAFITAN (Code édition a venir) ». Ce code
+ * est ce qui permet à un candidat de commander la partition : à réclamer, et
+ * le PDF à remplacer une fois complété (l'accent manque aussi à « à venir »).
+ */
 export const documents: SiteDocument[] = [
   { id: 'reglement', label: 'Règlement du concours', file: null },
-  { id: 'programme', label: 'Programme', file: null },
+  {
+    id: 'programme',
+    label: 'Programme',
+    file: '/documents/programme-concours.pdf',
+  },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -462,9 +485,14 @@ export const sectionContent = {
    */
   rules: {
     title: 'Règlement du concours',
+    /**
+     * Le programme est arrêté depuis le 09/09/2026 et téléchargeable ; le
+     * règlement, qui en dépendait, ne l'est pas encore. Le texte dit donc
+     * l'un et l'autre, au lieu d'annoncer les deux comme à venir.
+     */
     body: [
-      'Le règlement du concours est en cours de validation : il est lié au programme, qui n’est pas encore arrêté.',
-      'Il sera publié sur cette page dès qu’il sera définitif.',
+      'Le programme est arrêté : chaque catégorie a ses morceaux imposés, à retrouver dans le document ci-dessous.',
+      'Le règlement, lui, est encore en cours de validation. Il sera publié sur cette page dès qu’il sera définitif.',
     ] as string[] | null,
   },
   jury: { title: 'Jury / Accompagnatrices' },
