@@ -37,8 +37,8 @@
 }
 
 /**
- * Le groupe des institutions ne compte que deux logos : sur une piste en
- * `1fr`, chacun s'étirerait sur une demi-largeur. C'est la case qui est
+ * Le groupe des institutions ne compte qu'une poignée de logos : sur une
+ * piste en `1fr`, chacun s'étirerait sur une fraction démesurée. C'est la case qui est
  * bornée, et non la piste : avec `repeat(auto-fit, minmax(9rem, 11rem))`,
  * le nombre de pistes se calcule sur la borne haute et les deux logos
  * s'empileraient dès le mobile. La grille garde donc le découpage du mur

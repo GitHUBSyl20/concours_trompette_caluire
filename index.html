@@ -15,9 +15,11 @@
 
     <!--
       Aperçu lors du partage du lien (réseaux sociaux, messageries).
-      TODO — remplacer le chemin de l'image par une URL absolue une fois le
-      domaine connu : Facebook et LinkedIn ne résolvent pas les chemins
-      relatifs. Ajouter alors aussi une balise `og:url`.
+      L'image est en URL absolue : Facebook, LinkedIn et les messageries ne
+      résolvent pas les chemins relatifs. Elle est donc liée au domaine, seul
+      endroit du projet où il est écrit en dur avec `og:url` ci-dessous — à
+      reprendre ici tous les deux si le site passe un jour sous un
+      sous-domaine de l'AMC2.
     -->
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="fr_FR" />
@@ -29,7 +31,14 @@
       property="og:description"
       content="Les 28 et 29 novembre 2026 à Caluire-et-Cuire : catégories, règlement, jury et inscription."
     />
-    <meta property="og:image" content="/images/og-concours-trompette.png" />
+    <meta
+      property="og:url"
+      content="https://concours-trompette-caluire.vercel.app/"
+    />
+    <meta
+      property="og:image"
+      content="https://concours-trompette-caluire.vercel.app/images/og-concours-trompette.png"
+    />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta

@@ -2,8 +2,8 @@ import { categories, sectionContent } from '../data/siteData'
 import './CategoriesSection.css'
 
 /**
- * Liste des six catégories du concours et de leurs conditions de naissance,
- * reprises telles quelles de la maquette (cf. `siteData`).
+ * Liste des cinq catégories du concours et de leurs limites d'âge, reprises
+ * du programme (cf. `siteData`).
  */
 function CategoriesSection() {
   return (
@@ -21,7 +21,7 @@ function CategoriesSection() {
           {categories.map((category) => (
             <li className="categories__item" key={category.id}>
               <h3 className="categories__name">{category.name}</h3>
-              <p className="categories__condition">{category.birthCondition}</p>
+              <p className="categories__condition">{category.ageCondition}</p>
             </li>
           ))}
         </ul>

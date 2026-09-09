@@ -9,10 +9,10 @@ import './PartnersSection.css'
 /**
  * Grille des logos partenaires, en deux groupes.
  *
- * La planche « PARTENAIRES » les mêlait en un seul mur, mais la Ville de
- * Caluire et Cuire et l'AMC2 sont des institutions : elles ouvrent la
- * section, au-dessus des marques et ateliers du métier. Un soutien
- * institutionnel ne se lit pas comme un partenariat commercial.
+ * La planche « PARTENAIRES » les mêlait en un seul mur, mais la ville, l'AMC2
+ * et l'Académie de Surgères sont des institutions : elles ouvrent la section,
+ * au-dessus des marques et ateliers du métier. Un soutien institutionnel ne
+ * se lit pas comme un partenariat commercial.
  *
  * Les logos sont contenus dans une case de taille fixe avec
  * `object-fit: contain` afin de ne jamais déformer un ratio.

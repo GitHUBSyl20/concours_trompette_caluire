@@ -108,45 +108,33 @@ export const navItems: NavItem[] = [
 /* -------------------------------------------------------------------------- */
 
 /**
- * Reprises telles quelles de la planche « CATÉGORIES », ponctuation
- * inclusive comprise.
+ * Reprises du programme du concours, déclaré définitif le 09/09/2026 : il
+ * borne chaque catégorie par un âge, et non plus par une date de naissance.
+ * C'est lui qui fait foi désormais, devant la planche « CATÉGORIES » et
+ * devant la billetterie HelloAsso.
  *
- * Les deux dernières lignes suivent la billetterie HelloAsso de l'AMC2
- * (Supérieur 01/07/2004, Excellence 01/07/2002) et non la maquette, qui
- * donnait à « Supérieur » la même date qu'à « Moyen » et décalait
- * « Excellence » d'autant.
+ * Cela tranche au passage l'incohérence signalée depuis le début entre
+ * « Moyen » et « Supérieur », dont la maquette et HelloAsso donnaient des
+ * bornes contradictoires : la question ne se pose plus, les deux sources
+ * sont périmées.
+ *
+ * La catégorie « Débutant » disparaît : le programme ne lui donne aucun
+ * morceau imposé, et n'ouvre la liste qu'au préparatoire.
+ *
+ * TODO — la billetterie HelloAsso annonce toujours des dates de naissance,
+ * et elles ne se recoupent pas avec ces âges. « Supérieur » y est « né après
+ * le 01/07/2004 », soit moins de 22 ans au moment du concours, quand le
+ * programme dit « moins de 19 ans » ; « Moyen » y ouvre jusqu'à 18 ans quand
+ * le programme s'arrête à 16. Un candidat peut donc s'inscrire dans une
+ * catégorie dont il ne pourra pas jouer le programme : à aligner côté AMC2,
+ * comme le lien du formulaire.
  */
 export const categories: Category[] = [
-  {
-    id: 'debutant',
-    name: 'Débutant',
-    birthCondition: 'Né·e après le 01/07/2015',
-  },
-  {
-    id: 'preparatoire',
-    name: 'Préparatoire',
-    birthCondition: 'Né·e après le 01/07/2013',
-  },
-  {
-    id: 'elementaire',
-    name: 'Élémentaire',
-    birthCondition: 'Né·e après le 01/07/2011',
-  },
-  {
-    id: 'moyen',
-    name: 'Moyen',
-    birthCondition: 'Né·e après le 01/07/2008',
-  },
-  {
-    id: 'superieur',
-    name: 'Supérieur',
-    birthCondition: 'Né·e après le 01/07/2004',
-  },
-  {
-    id: 'excellence',
-    name: 'Excellence',
-    birthCondition: 'Né·e après le 01/07/2002',
-  },
+  { id: 'preparatoire', name: 'Préparatoire', ageCondition: 'Moins de 10 ans' },
+  { id: 'elementaire', name: 'Élémentaire', ageCondition: 'Moins de 13 ans' },
+  { id: 'moyen', name: 'Moyen', ageCondition: 'Moins de 16 ans' },
+  { id: 'superieur', name: 'Supérieur', ageCondition: 'Moins de 19 ans' },
+  { id: 'excellence', name: 'Excellence', ageCondition: 'Moins de 25 ans' },
 ]
 
 /* -------------------------------------------------------------------------- */
@@ -277,11 +265,14 @@ export const accompagnatrices = people.filter(
 /* -------------------------------------------------------------------------- */
 
 /**
- * Ordre repris de la planche « PARTENAIRES », à une réserve près : la Ville
- * de Caluire et Cuire et l'AMC2 sont remontées en tête et marquées
- * `institution`. La planche les mêlait aux marques du métier ; un soutien
- * institutionnel ne se lit pas comme un partenariat commercial, et les deux
- * familles sont donc affichées en groupes distincts.
+ * Ordre repris de la planche « PARTENAIRES », à une réserve près : les
+ * institutions sont remontées en tête et marquées `institution`. La planche
+ * les mêlait aux marques du métier ; un soutien institutionnel ne se lit pas
+ * comme un partenariat commercial, et les deux familles sont donc affichées
+ * en groupes distincts.
+ *
+ * Y figurent la ville qui accueille le concours, l'association qui
+ * l'organise, et l'Académie de Cuivres et Percussions de Surgères.
  *
  * TODO — aucune URL n'a été communiquée par l'organisation. Celles qui
  * figurent ci-dessous ont été retrouvées à partir du nom de chaque
@@ -304,6 +295,19 @@ export const partners: Partner[] = [
     name: 'AMC2 — Association Musicale de Caluire et Cuire',
     logo: '/logos/partners/amc2.webp',
     url: 'https://www.musicamc2.fr/',
+    institution: true,
+  },
+  // Ajoutée le 09/09/2026, hors planche « PARTENAIRES ». Académie cofondée
+  // par Clément Saunier, président du jury du concours.
+  //
+  // Le lien mène au site Wix de l'académie, seul à répondre en https : le
+  // domaine `academie-surgeres.fr` n'existe qu'en http et n'est qu'un cadre
+  // posé autour de ce même site Wix.
+  {
+    id: 'academie-surgeres',
+    name: 'Académie de Cuivres et Percussions de Surgères',
+    logo: '/logos/partners/academie-cuivres-percussions-surgeres.webp',
+    url: 'https://academiesurgeres.wixsite.com/site',
     institution: true,
   },
 
@@ -393,17 +397,6 @@ export const partners: Partner[] = [
     // Le lettrage du rendu 3D est illisible à 60 px : on le redonne en clair.
     caption: '3DZiR — Embouchures et becs',
     note: 'Ajouté hors planche « PARTENAIRES ». Logo en rendu 3D sur fond plein, contrairement aux autres.',
-  },
-  // Ajouté le 09/09/2026, hors planche « PARTENAIRES ». Le lien mène au site
-  // Wix de l'académie, seul à répondre en https : le domaine
-  // `academie-surgeres.fr` n'existe qu'en http et n'est qu'un cadre posé
-  // autour du même site Wix.
-  {
-    id: 'academie-surgeres',
-    name: 'Académie de Cuivres et Percussions de Surgères',
-    logo: '/logos/partners/academie-cuivres-percussions-surgeres.webp',
-    url: 'https://academiesurgeres.wixsite.com/site',
-    note: "Ajouté hors planche « PARTENAIRES ». Académie cofondée par Clément Saunier, président du jury du concours.",
   },
 ]
 

@@ -16,13 +16,15 @@ export interface NavItem {
 /** Catégorie de concours (planche « CATÉGORIES » de la maquette). */
 export interface Category {
   id: string
-  /** Nom affiché : « Débutant », « Préparatoire »… */
+  /** Qualification affichée : « Préparatoire », « Moyen »… */
   name: string
   /**
-   * Condition de naissance telle qu'écrite sur la maquette,
-   * ponctuation inclusive comprise (« Né·e après le 01/07/2015 »).
+   * Limite d'âge telle qu'écrite sur le programme (« Moins de 10 ans »).
+   *
+   * Remplace la condition de naissance de la maquette : le programme du
+   * 09/09/2026 borne les catégories par âge, et c'est lui qui fait foi.
    */
-  birthCondition: string
+  ageCondition: string
   /** Remarque interne à lever avec l'organisation (non affichée). */
   note?: string
 }
