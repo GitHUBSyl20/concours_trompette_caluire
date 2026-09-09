@@ -86,6 +86,13 @@ export interface Partner {
    */
   logoBackground?: 'white' | 'opaque'
   /**
+   * Agrandissement optique du logo, pour un visuel dont le cadrage le fait
+   * paraître plus petit que ses voisins à taille égale (`1.2` = +20 %).
+   * Le ratio est conservé. Absent pour un logo à l'échelle commune, le cas
+   * courant.
+   */
+  logoScale?: number
+  /**
    * Légende affichée sous le logo, pour un visuel qu'on ne déchiffre pas à
    * la taille d'affichage. À réserver à ces cas : la planche « PARTENAIRES »
    * est un mur de logos, sans texte.

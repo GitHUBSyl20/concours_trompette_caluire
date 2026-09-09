@@ -61,7 +61,7 @@ function JurySection() {
   return (
     <section className="section jury" id="jury" aria-labelledby="jury-title">
       <div className="container">
-        <h2 className="section__title" id="jury-title">
+        <h2 className="section__title section__title--centered" id="jury-title">
           {sectionContent.jury.title}
         </h2>
       </div>

@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import {
   institutionPartners,
   professionalPartners,
@@ -55,6 +56,15 @@ function PartnerGrid({
             src={partner.logo}
             alt={partner.name}
             loading="lazy"
+            /* Agrandissement optique : le facteur est passé à la feuille de
+               style, qui décide comment l'appliquer. */
+            style={
+              partner.logoScale
+                ? ({
+                    '--partner-logo-scale': partner.logoScale,
+                  } as CSSProperties)
+                : undefined
+            }
           />
         )
 
@@ -102,7 +112,7 @@ function PartnersSection() {
       aria-labelledby="partenaires-title"
     >
       <div className="container">
-        <h2 className="section__title" id="partenaires-title">
+        <h2 className="section__title section__title--centered" id="partenaires-title">
           {title}
         </h2>
 

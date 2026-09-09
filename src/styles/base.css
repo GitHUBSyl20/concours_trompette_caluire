@@ -116,6 +116,16 @@ button {
   margin-bottom: var(--space-xl);
 }
 
+/**
+ * Titre centré, pour les sections dont le contenu l'est déjà : les cartes
+ * de catégories, les intitulés du jury et le mur de logos. Les sections de
+ * texte suivi (« Présentation », « Règlement ») gardent un titre aligné sur
+ * leurs paragraphes.
+ */
+.section__title--centered {
+  text-align: center;
+}
+
 /** Corps de texte d'une section : paragraphes successifs espacés. */
 .section__text + .section__text {
   margin-top: var(--space-md);

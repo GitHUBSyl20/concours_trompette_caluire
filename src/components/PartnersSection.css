@@ -82,11 +82,19 @@
   outline-offset: 6px;
 }
 
-/* `object-fit: contain` garantit qu'aucun logo n'est déformé. */
+/**
+ * `object-fit: contain` garantit qu'aucun logo n'est déformé.
+ *
+ * `--partner-logo-scale` rattrape le cadrage d'un logo qui se lit plus petit
+ * que ses voisins à taille égale. L'agrandissement passe par `transform` et
+ * non par la largeur : la case de grille reste identique, donc l'alignement
+ * du mur de logos aussi.
+ */
 .partners__logo {
   width: 100%;
   max-height: 5rem;
   object-fit: contain;
+  transform: scale(var(--partner-logo-scale, 1));
 }
 
 /* Carte blanche pour les logos fournis sur fond blanc opaque. */

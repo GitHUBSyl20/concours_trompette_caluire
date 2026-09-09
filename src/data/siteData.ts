@@ -309,6 +309,9 @@ export const partners: Partner[] = [
     logo: '/logos/partners/academie-cuivres-percussions-surgeres.webp',
     url: 'https://academiesurgeres.wixsite.com/site',
     institution: true,
+    // Le logo est cerné de blanc dans son fichier : à hauteur égale, il se
+    // lit plus petit que ceux de la ville et de l'AMC2.
+    logoScale: 1.2,
   },
 
   /* Partenaires professionnels : marques, ateliers et enseignes du métier. */
@@ -365,6 +368,24 @@ export const partners: Partner[] = [
     url: 'https://trompetteactus.fr/',
     // Logo dessiné, sans lettrage lisible à la taille d'affichage.
     caption: 'Trompette Actus',
+  },
+  // Ajoutée le 09/09/2026, hors planche « PARTENAIRES ». L'association n'a
+  // pas de site propre : elle s'exprime sur Trompette Actus, autre
+  // partenaire du concours, où sa page de présentation fait référence.
+  //
+  // Le seul logo fourni est la version pour fond noir (lettrage blanc) : il
+  // est posé sur une vignette noire, la page étant blanche.
+  {
+    id: 'union-des-trompettistes',
+    name: 'UT — Union des Trompettistes, Association de la Trompette Française',
+    logo: '/logos/partners/ut-union-des-trompettistes.webp',
+    url: 'https://trompetteactus.fr/lunion-des-trompettistes/',
+    linkLabel:
+      'Union des Trompettistes (présentation sur Trompette Actus)',
+    logoBackground: 'opaque',
+    // Réduit à la hauteur des vignettes, le nom de l'association n'est plus
+    // lisible sous le sigle : on le redonne en clair.
+    caption: 'Union des Trompettistes',
   },
   // TODO — les deux partenaires suivants figurent dans le dossier de logos
   // fourni mais pas sur la planche « PARTENAIRES ». Publication à confirmer.

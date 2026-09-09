@@ -13,7 +13,7 @@ function CategoriesSection() {
       aria-labelledby="categories-title"
     >
       <div className="container">
-        <h2 className="section__title" id="categories-title">
+        <h2 className="section__title section__title--centered" id="categories-title">
           {sectionContent.categories.title}
         </h2>
 
