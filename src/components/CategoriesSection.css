@@ -20,3 +20,31 @@
   color: var(--color-purple-light);
   font-size: var(--text-sm);
 }
+
+/**
+ * Sur desktop, les cinq catégories se répartissent 3 + 2 plutôt que de
+ * laisser la seconde rangée en drapeau à gauche : la grille passe à six
+ * colonnes et chaque carte en occupe deux, ce qui permet de décaler la
+ * rangée incomplète d'une demi-carte et de la centrer.
+ *
+ * Le seuil est celui à partir duquel trois cartes de 15rem tiennent dans le
+ * container — 840 px, le padding valant alors 4vw — de sorte que la règle
+ * prenne le relais au moment précis où `auto-fit` passerait lui aussi à
+ * trois colonnes. En deçà, `auto-fit` reprend la main et remplit les rangées.
+ *
+ * Le décalage vise la 4e carte : il suppose cinq catégories, comme le
+ * programme en fixe cinq. À revoir si l'organisation en ajoute ou en retire.
+ */
+@media (min-width: 840px) {
+  .categories__list {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .categories__item {
+    grid-column: span 2;
+  }
+
+  .categories__item:nth-child(4) {
+    grid-column: 2 / span 2;
+  }
+}
