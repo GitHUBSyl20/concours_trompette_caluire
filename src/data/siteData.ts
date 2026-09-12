@@ -244,11 +244,10 @@ export const people: Person[] = [
     name: 'Hyoung Sun Kim',
     role: 'accompagnatrice',
     instrument: 'Piano',
-    // TODO — la bio fournie se termine par une phrase issue d'une autre biographie (« Conservatoire de Nîmes (2006-2012)… »). À faire confirmer par l'organisation.
     bio: [
       'Née à Séoul (Corée du Sud), Hyoung Sun Kim débute ses études de piano à la Sun Hwa Art School et Sun Hwa High School. C’est après avoir obtenu son Bachelor de l’Université Yon Sei, toujours à Séoul, qu’elle est admise, à l’unanimité, au Conservatoire National Supérieur de Musique de Lyon dans la classe de Pierre Pontier. Elle y obtient le Diplôme d\'Études Supérieures de Musique.',
-      'Lauréate du concours Samick piano en Corée du Sud, ainsi que du Concours National de Piano de Sucy-en-Brie , elle enseigne à l\'Amc2, à Caluire et Cuire.',
-      'Elle se produit régulièrement en concert en France et à l’étranger, en tant que soliste et chambriste. Conservatoire de Nîmes (2006-2012), puis rejoint en 2012 le Conservatoire à Rayonnement Régional de Lyon.',
+      'Lauréate du concours Samick piano en Corée du Sud, ainsi que du Concours National de Piano de Sucy-en-Brie, elle enseigne à l\'Amc2, à Caluire et Cuire.',
+      'Elle se produit régulièrement en concert en France et à l’étranger, en tant que soliste et chambriste.',
     ],
     photo: '/images/portraits/hyoung-sun-kim.webp',
   },
@@ -271,8 +270,8 @@ export const accompagnatrices = people.filter(
  * comme un partenariat commercial, et les deux familles sont donc affichées
  * en groupes distincts.
  *
- * Y figurent la ville qui accueille le concours, l'association qui
- * l'organise, et l'Académie de Cuivres et Percussions de Surgères.
+ * Y figurent la ville qui accueille le concours et l'association qui
+ * l'organise.
  *
  * TODO — aucune URL n'a été communiquée par l'organisation. Celles qui
  * figurent ci-dessous ont été retrouvées à partir du nom de chaque
@@ -297,6 +296,7 @@ export const partners: Partner[] = [
     url: 'https://www.musicamc2.fr/',
     institution: true,
   },
+  /* Partenaires professionnels : marques, ateliers et enseignes du métier. */
   // Ajoutée le 09/09/2026, hors planche « PARTENAIRES ». Académie cofondée
   // par Clément Saunier, président du jury du concours.
   //
@@ -308,13 +308,10 @@ export const partners: Partner[] = [
     name: 'Académie de Cuivres et Percussions de Surgères',
     logo: '/logos/partners/academie-cuivres-percussions-surgeres.webp',
     url: 'https://academiesurgeres.wixsite.com/site',
-    institution: true,
     // Le logo est cerné de blanc dans son fichier : à hauteur égale, il se
-    // lit plus petit que ceux de la ville et de l'AMC2.
+    // lit plus petit que les autres vignettes.
     logoScale: 1.2,
   },
-
-  /* Partenaires professionnels : marques, ateliers et enseignes du métier. */
   {
     id: 'a-mute',
     name: 'A-Mute',
@@ -358,7 +355,10 @@ export const partners: Partner[] = [
     name: 'Le Stock de Notes',
     logo: '/logos/partners/le-stock-de-notes.webp',
     url: 'https://www.lestockdenotes.com/',
-    // TODO — logo rangé avec ceux de JS Musique : partenaire distinct ou enseigne liée ?
+    // Partenaire à part entière : le programme du concours le désigne comme
+    // « notre partenaire » et annonce 5 % de remise sur les œuvres imposées
+    // commandées chez lui. Le logo était seulement rangé avec ceux de
+    // JS Musique dans le dossier fourni.
   },
   { id: 'slide-to-play', name: 'Slide to Play', logo: '/logos/partners/slide-to-play.webp', url: 'https://slidetoplay.fr/' },
   {
@@ -439,10 +439,18 @@ export const professionalPartners = partners.filter(
  * Le programme est fourni et déclaré définitif par l'organisation le
  * 09/09/2026. Le règlement, qui en dépendait, reste en cours de validation.
  *
- * TODO — le programme porte encore une mention d'attente pour la catégorie
- * préparatoire : « Éditions Pierre LAFITAN (Code édition a venir) ». Ce code
+ * Le PDF servi est la version mise en page par la graphiste, reçue le
+ * 10/09/2026, qui remplace le document bureautique d'origine. Contenu
+ * identique : mêmes catégories, mêmes âges, mêmes morceaux imposés.
+ *
+ * TODO — le programme porte toujours une mention d'attente pour la catégorie
+ * préparatoire : « Éditions Pierre Lafftan (code édition à venir) ». Ce code
  * est ce qui permet à un candidat de commander la partition : à réclamer, et
- * le PDF à remplacer une fois complété (l'accent manque aussi à « à venir »).
+ * le PDF à remplacer une fois complété.
+ *
+ * TODO — la mise en page introduit au passage une coquille sur ce même
+ * éditeur : « Lafftan » pour « Lafitan », qui est par ailleurs partenaire du
+ * concours (cf. `partners`). À faire corriger avec le code d'édition.
  */
 export const documents: SiteDocument[] = [
   { id: 'reglement', label: 'Règlement du concours', file: null },
@@ -485,7 +493,7 @@ export const sectionContent = {
     title: 'Présentation',
     body: [
       'L’Association Musicale de Caluire-et-Cuire (AMC2) organise le premier concours de trompette de la ville. Il se tiendra les samedi 28 et dimanche 29 novembre 2026 à l’école de musique : 1 rue Jean Moulin, 69300 Caluire-et-Cuire.',
-      'Cet événement convivial et exigeant s’adresse aux trompettistes de moins de 25 ans répartis en 6 catégories, souhaitant partager leur passion, progresser et se produire dans des conditions professionnelles.',
+      'Cet événement convivial et exigeant s’adresse aux trompettistes de moins de 25 ans répartis en 5 catégories, souhaitant partager leur passion, progresser et se produire dans des conditions professionnelles.',
     ] as string[] | null,
   },
   categories: { title: 'Catégories' },

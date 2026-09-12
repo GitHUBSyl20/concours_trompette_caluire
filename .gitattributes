@@ -1,0 +1,6 @@
+# Git prenait le PDF du programme pour du texte (PDF 1.3, flux non compresses)
+# et y convertissait les fins de ligne : le fichier ressortait corrompu au checkout.
+*.pdf binary
+*.png binary
+*.webp binary
+*.avif binary
