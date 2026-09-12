@@ -436,8 +436,8 @@ export const professionalPartners = partners.filter(
 /* -------------------------------------------------------------------------- */
 
 /**
- * Le programme est fourni et déclaré définitif par l'organisation le
- * 09/09/2026. Le règlement, qui en dépendait, reste en cours de validation.
+ * Programme et règlement sont l'un et l'autre fournis par l'organisation :
+ * le programme le 09/09/2026, le règlement le 12/09/2026.
  *
  * Le PDF servi est la version mise en page par la graphiste, reçue le
  * 10/09/2026, qui remplace le document bureautique d'origine. Contenu
@@ -453,7 +453,11 @@ export const professionalPartners = partners.filter(
  * concours (cf. `partners`). À faire corriger avec le code d'édition.
  */
 export const documents: SiteDocument[] = [
-  { id: 'reglement', label: 'Règlement du concours', file: null },
+  {
+    id: 'reglement',
+    label: 'Règlement du concours',
+    file: '/documents/reglement-concours.pdf',
+  },
   {
     id: 'programme',
     label: 'Programme',
@@ -497,25 +501,15 @@ export const sectionContent = {
     ] as string[] | null,
   },
   categories: { title: 'Catégories' },
-  /**
-   * TODO — le règlement n'est pas arrêté : il dépend du programme, en
-   * attente de validation par Clément Saunier. Formulation publique de
-   * cette attente ; le message reçu de l'organisation était : « Le règlement
-   * est en cours de validation et lié au programme. Quand le programme sera
-   * validé par Clément, tout sera validé mais pour l'instant nous n'avons
-   * pas les infos. »
-   */
   rules: {
     title: 'Règlement du concours',
     /**
-     * Le programme est arrêté depuis le 09/09/2026 et téléchargeable ; le
-     * règlement, qui en dépendait, ne l'est pas encore. Le texte dit donc
-     * l'un et l'autre, au lieu d'annoncer les deux comme à venir.
+     * Sans texte d'introduction, à la demande de l'organisation : la section
+     * s'ouvre directement sur les deux documents. Le tableau vide est
+     * volontaire — `null` ferait apparaître à la place le cadre « texte à
+     * recevoir » de `RulesSection`.
      */
-    body: [
-      'Le programme est arrêté : chaque catégorie a ses morceaux imposés, à retrouver dans le document ci-dessous.',
-      'Le règlement, lui, est encore en cours de validation. Il sera publié sur cette page dès qu’il sera définitif.',
-    ] as string[] | null,
+    body: [] as string[] | null,
   },
   jury: { title: 'Jury / Accompagnatrices' },
   partners: {

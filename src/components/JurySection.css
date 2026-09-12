@@ -28,6 +28,21 @@
   margin-bottom: var(--space-2xl);
 }
 
+/**
+ * Fin de section. Trois respirations s'additionnaient sous la dernière
+ * biographie : les 72 du bloc `.person`, la marge de fin de liste et le
+ * rembourrage bas de la section, avant même celui de « Partenaires ». Le
+ * bloc porte déjà la sienne et la section suivante ouvre sur la sienne :
+ * les deux intermédiaires sont retirées.
+ */
+.jury__list:last-of-type {
+  margin-bottom: 0;
+}
+
+.jury {
+  padding-bottom: 0;
+}
+
 .person {
   /* 72 / 1440 = 5 % */
   padding-block: clamp(2rem, 5vw, 4.5rem);
